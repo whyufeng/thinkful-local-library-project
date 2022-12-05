@@ -1,21 +1,12 @@
 function getTotalBooksCount(books) {
-  /*
-  function usage: retrieve the total number of book objects inside of array input
-  */
   return books.length;
 }
 
 function getTotalAccountsCount(accounts) {
-  /*
-  function usage: retrieve the total number of account objects inside of array input
-  */
   return accounts.length;
 }
 
 function getBooksBorrowedCount(books) {
-  /*
-  function usage: retrieve the number of books that are currently checked out of the library
-  */
   let borrowed_book = 0;
   for (const book of books){
     if (!book.borrows[0].returned) {
@@ -26,10 +17,6 @@ function getBooksBorrowedCount(books) {
 }
 
 function getMostCommonGenres(books) {
-  /*
-  function usage: obtain five objects or fewer that represents the most common occurring genres,
-  ordered from most common to least.
-  */
   let genre_freq = books.reduce((pre,cur) => {
         if (cur.genre in pre) {pre[cur.genre]++}
         else {pre[cur.genre] = 1}
