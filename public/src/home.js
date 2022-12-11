@@ -5,7 +5,7 @@ function getTotalBooksCount(books) {
   return books.length;
 }
 
-function getTotalAccountsCount(accounts) {
+  function getTotalAccountsCount(accounts) {
   /*
   function usage: retrieve the total number of account objects inside of array input
   */
@@ -49,12 +49,16 @@ function getMostPopularBooks(books) {
   let book_freq = new Array();
   books.forEach(book => {book_freq.push([book.title, book.borrows.length])});
   book_freq.sort((a,b)=> b[1]-a[1]);
-  let display_num = book_freq.length>5? 5: book_freq.length;
+  let display_num = cal_display_number(book_freq);
   let ret_list = new Array();
   for (let i=0;i<display_num;i++){
     ret_list.push({name:book_freq[i][0], count:book_freq[i][1]});
   }
   return ret_list;
+}
+
+function cal_display_number(book_freq){
+  return book_freq.length>5? 5: book_freq.length;
 }
 
 function getMostPopularAuthors(books, authors) {
